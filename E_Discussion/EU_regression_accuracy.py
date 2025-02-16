@@ -97,7 +97,7 @@ def t_fm(device=0):
     model = DeepFM()
     optimizer = optim.Adam(model.parameters(), lr=1e-3, weight_decay=0.001)
     # model.fit(loader_train=data_loader, optimizer=optimizer, mode='test')
-    model.cheat_fit(loader_train=data_loader, test_dataset=test_dataset, optimizer=optimizer, mode='test')
+    model.fit(loader_train=data_loader, test_dataset=test_dataset, optimizer=optimizer, mode='test')
     model = DeepFM()
     model.load_state_dict(torch.load('SavedModel/FM_test.pkl'))
     model.cuda()
