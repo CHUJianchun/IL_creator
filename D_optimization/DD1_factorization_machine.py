@@ -202,7 +202,7 @@ def train_FM():
     data_loader = DataLoader(dataset, batch_size=cmd_args.batch_size, drop_last=True)
     model = DeepFM()
     optimizer = optim.Adam(model.parameters(), lr=1e-4, weight_decay=0.001)
-    model.cheat_fit(loader_train=data_loader, test_dataset=dataset, optimizer=optimizer)
+    model.fit(loader_train=data_loader, test_dataset=dataset, optimizer=optimizer)
 
 
 if __name__ == '__main__':
